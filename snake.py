@@ -11,6 +11,9 @@ class Snake:
 
     def __init__(self):
         self.segments = []
+        self.reset_snake()
+
+    def reset_snake(self):
         self.create_snake()
         self.head = self.segments[0]
         self.head.color("red")
@@ -32,6 +35,12 @@ class Snake:
 
     def extend(self):
         self.add_segment(self.segments[-1].position())
+
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(1000,1000)
+        self.segments.clear()
+        self.reset_snake()
 
 
     def move(self):
